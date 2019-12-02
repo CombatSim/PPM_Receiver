@@ -258,10 +258,13 @@ cube: .cube
 
 # Prepare workspace
 # - Erases useless Makefile, renames cube's main.c and links githooks
+# - Erases also specific project files that are overwritten by user
 prepare: $(VS_LAUNCH_FILE) $(VS_C_CPP_PROPERTIES_FILE)
 	@echo "Preparing cube files"
 	$(AT)-mv -f $(CUBE_DIR)/Src/main.c $(CUBE_DIR)/Src/cube_main.c
 	$(AT)-rm -f $(CUBE_DIR)/Makefile
+	$(AT)-rm -f $(CUBE_DIR)/Src/usbd_custom_hid_if.c
+	$(AT)-rm -f $(CUBE_DIR)/Inc/usbd_custom_hid_if.h
 	@echo "Linking githooks"
 	$(AT)git config core.hooksPath .githooks
 

@@ -98,17 +98,17 @@ __ALIGN_BEGIN static uint8_t CUSTOM_HID_ReportDesc_FS[USBD_CUSTOM_HID_REPORT_DES
     0x09, 0x05, // USAGE (Game Pad)
     0xa1, 0x01, // COLLECTION (Application)
 
-    0x85, 0x01, // REPORT_ID (1)
+    0x85, JOYSTICK_REPORT_ID, // REPORT_ID (JOYSTICK_REPORT_ID)
 
-    0x05, 0x01,       // USAGE_PAGE (Generic Desktop)
-    0x09, 0x30,       // USAGE(AN1)X
-    0x09, 0x31,       // USAGE(AN2)Y
-    0x09, 0x36,       // USAGE (Slider)
-    0x15, 0x00,       // LOGICAL_MINIMUM (0)
-    0x26, 0xE8, 0x03, // LOGICAL_MAXIMUM (1000)
-    0x75, 0x10,       // REPORT_SIZE (16)
-    0x95, 0x03,       // REPORT_COUNT (3)
-    0x81, 0x02,       // INPUT (Data,Var,Abs)
+    0x05, 0x01,                                                               // USAGE_PAGE (Generic Desktop)
+    0x09, 0x30,                                                               // USAGE(AN1)X
+    0x09, 0x31,                                                               // USAGE(AN2)Y
+    0x09, 0x36,                                                               // USAGE (Slider)
+    0x15, JOYSTICK_LOGICAL_MINIMUM,                                           // LOGICAL_MINIMUM (JOYSTICK_LOGICAL_MINIMUM)
+    0x26, JOYSTICK_LOGICAL_MAXIMUM_LS_BYTE, JOYSTICK_LOGICAL_MAXIMUM_MS_BYTE, // LOGICAL_MAXIMUM (1000)
+    0x75, 0x10,                                                               // REPORT_SIZE (16)
+    0x95, JOYSTICK_REPORT_NUM_OF_AXES,                                        // REPORT_COUNT (3 -> X, Y, Slider)
+    0x81, 0x02,                                                               // INPUT (Data,Var,Abs)
 
     0xc0, // END_COLLECTION
 };

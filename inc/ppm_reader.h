@@ -17,6 +17,8 @@
  * Public Constant Definitions
  *****************************************/
 
+#define PPM_CHANNELS 3
+
 #define PPM_MIN_VALUE 1000
 #define PPM_MAX_VALUE 2000
 

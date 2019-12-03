@@ -22,8 +22,9 @@
 /* USER CODE END Header */
 
 /* Includes ------------------------------------------------------------------*/
+
 #include "usbd_custom_hid_if.h"
-#include "common_defines.h"
+#include "joystick.h"
 
 /* USER CODE BEGIN INCLUDE */
 
@@ -97,45 +98,16 @@ __ALIGN_BEGIN static uint8_t CUSTOM_HID_ReportDesc_FS[USBD_CUSTOM_HID_REPORT_DES
     0x09, 0x05, // USAGE (Game Pad)
     0xa1, 0x01, // COLLECTION (Application)
 
-    0x85, JOY_REPORT_ID,   // REPORT_ID	(JOY_REPORT_ID)
-    0x05, 0x09,            // USAGE_PAGE (Button)
-    0x19, 0x01,            // USAGE_MINIMUM (Button 1)
-    0x29, MAX_BUTTONS_NUM, // USAGE_MAXIMUM (Button MAX_BUTTONS_NUM)
-    0x15, 0x00,            // LOGICAL_MINIMUM (0)
-    0x25, 0x01,            // LOGICAL_MAXIMUM (1)
-    0x75, 0x01,            // REPORT_SIZE (1)
-    0x95, MAX_BUTTONS_NUM, // REPORT_COUNT (MAX_BUTTONS_NUM)
-    0x81, 0x02,            // INPUT (Data,Var,Abs)
+    0x85, 0x01, // REPORT_ID (1)
 
-    0x05, 0x01,         // USAGE_PAGE (Generic Desktop)
-    0x09, 0x30,         // USAGE (X)
-    0x09, 0x31,         // USAGE (Y)
-    0x09, 0x32,         // USAGE (Z)
-    0x09, 0x33,         // USAGE (Rx)
-    0x09, 0x34,         // USAGE (Ry)
-    0x09, 0x35,         // USAGE (Rz)
-    0x09, 0x36,         // USAGE (Slider)
-    0x09, 0x36,         // USAGE (Slider)
-    0x15, 0x00,         // LOGICAL_MINIMUM (0)
-    0x26, 0xFF, 0x0F,   // LOGICAL_MAXIMUM (4095)
-    0x75, 0x10,         // REPORT_SIZE (16)
-    0x95, MAX_AXIS_NUM, // REPORT_COUNT (MAX_AXIS_NUM)
-    0x81, 0x02,         // INPUT (Data,Var,Abs)
-
-    0x09, 0x39,       // USAGE (Hat switch)
+    0x05, 0x01,       // USAGE_PAGE (Generic Desktop)
+    0x09, 0x30,       // USAGE(AN1)X
+    0x09, 0x31,       // USAGE(AN2)Y
+    0x09, 0x36,       // USAGE (Slider)
     0x15, 0x00,       // LOGICAL_MINIMUM (0)
-    0x25, 0x07,       // LOGICAL_MAXIMUM (7)
-    0x35, 0x00,       // PHYSICAL_MINIMUM (0)
-    0x46, 0x3B, 0x01, // PHYSICAL_MAXIMUM (315)
-    0x65, 0x12,       // UNIT (SI Rot:Angular Pos)
-    0x75, 0x08,       // REPORT_SIZE (8)
-    0x95, 0x01,       // REPORT_COUNT (1)
-    0x81, 0x02,       // INPUT (Data,Var,Abs)
-    0x09, 0x39,       // USAGE (Hat switch)
-    0x81, 0x02,       // INPUT (Data,Var,Abs)
-    0x09, 0x39,       // USAGE (Hat switch)
-    0x81, 0x02,       // INPUT (Data,Var,Abs)
-    0x09, 0x39,       // USAGE (Hat switch)
+    0x26, 0xE8, 0x03, // LOGICAL_MAXIMUM (1000)
+    0x75, 0x10,       // REPORT_SIZE (16)
+    0x95, 0x03,       // REPORT_COUNT (3)
     0x81, 0x02,       // INPUT (Data,Var,Abs)
 
     0xc0, // END_COLLECTION
